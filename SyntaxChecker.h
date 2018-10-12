@@ -13,7 +13,6 @@
 #include <string>
 #include <fstream>
 #include "GenStack.h"
-#include "FileIO.h"
 
 class SyntaxChecker
 {
