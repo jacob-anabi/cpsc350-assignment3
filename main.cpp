@@ -23,28 +23,28 @@ int main(int argc, char** argv)
 
         do
         {
-            if (syntaxChecker->check())
+            if (syntaxChecker->check()) // check syntax of the source file
             {
                 while (true)
                 {
                     std::cout << "Source file has proper syntax. Would you like to process another one? (Y/n) ";
                     std::getline(std::cin, input);
 
-                    if (input == "Y")
+                    if (input == "Y") // if they want to enter another file
                     {
                         keepGoing = true;
                         std::cout << "What is the source file: ";
                         std::getline(std::cin, sourceFileName);
-                        delete syntaxChecker;
-                        syntaxChecker = new SyntaxChecker(sourceFileName);
+                        delete syntaxChecker; // delete the old syntax checker
+                        syntaxChecker = new SyntaxChecker(sourceFileName); // create new SyntaxChecker object for the new file
                         break;
                     }
-                    else if (input == "n")
+                    else if (input == "n") // if they dont want to enter another file
                     {
                         keepGoing = false;
                         break;
                     }
-                    else
+                    else // if they enter an invalid response
                     {
                         std::cout << "Invalid input. Try again. " << std::endl;
                     }
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
             }
             else
             {
-                keepGoing = false;
+                keepGoing = false; // if the source file has improper syntax, exit the program
             }
         } while (keepGoing);
 
